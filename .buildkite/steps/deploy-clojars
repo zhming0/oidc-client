@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+echo "--- :gear: Installing mise"
+curl https://mise.run | sh
+export PATH="$HOME/.local/bin:$HOME/.local/share/mise/shims:$PATH"
+mise install
+
+VERSION="$(buildkite-agent meta-data get "release-version")"
+export VERSION
+
+echo "--- :package: Building jar ($VERSION)"
+clojure -T:build jar
+
+echo "--- :clojars: Deploying to Clojars"
+clojure -T:build deploy
