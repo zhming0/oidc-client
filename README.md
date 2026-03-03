@@ -1,22 +1,25 @@
 # oidc-client
 
+[![Clojars Project](https://img.shields.io/clojars/v/io.github.zhming0/oidc-client.svg)](https://clojars.org/io.github.zhming0/oidc-client)
+
 OpenID Connect / OAuth 2.0 client library for Clojure.
 
 Plain data in, plain data out. Server metadata and client configuration are regular Clojure maps. No custom types, no macros, no global state.
 
 Based on [panva/openid-client](https://github.com/panva/openid-client) by Filip Skokan — the reference OpenID Connect client implementation for JavaScript/TypeScript.
 
-## Dependencies
-
-- [org.babashka/http-client](https://github.com/babashka/http-client) for HTTP
-- [metosin/jsonista](https://github.com/metosin/jsonista) for JSON
-
 ## Installation
 
-Add to your `deps.edn`:
+deps.edn:
 
 ```clojure
-oidc-client {:local/root "/path/to/oidc-client"}
+io.github.zhming0/oidc-client {:mvn/version "LATEST"}
+```
+
+Leiningen/Boot:
+
+```clojure
+[io.github.zhming0/oidc-client "LATEST"]
 ```
 
 ## Quick start
